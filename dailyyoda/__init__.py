@@ -5,7 +5,6 @@ from dateutil.parser import parse
 class dailyyoda:
 
   def __init__(self, dbname):
-    print "Yoda Quote of the Day"
     filename = None
     if dbname == 'test':
       filename = 'test.db'
