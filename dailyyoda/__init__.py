@@ -10,6 +10,8 @@ class dailyyoda:
       filename = 'test.db'
     elif dbname == 'yoda':
       filename = 'quotes.db'
+    elif dbname == 'vader':
+      filename = 'vader.db'
     else:
       raise ValueError("Unknown dbname: " + dbname + ".  Acceptable options: test, yoda")
 
