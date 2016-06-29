@@ -1,4 +1,4 @@
-# daily-yoda
+# dailyyoda
 Python module for producing a yoda quote of the day
 
 ## Usage
