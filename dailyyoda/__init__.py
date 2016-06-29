@@ -9,7 +9,7 @@ class dailyyoda:
     if dbname == 'test':
       filename = 'test.db'
     elif dbname == 'yoda':
-      filename = 'yoda.db'
+      filename = 'quotes.db'
     else:
       raise ValueError("Unknown dbname: " + dbname + ".  Acceptable options: test, yoda")
 
@@ -27,7 +27,7 @@ class dailyyoda:
       d = date.today() + timedelta(days=1)
     else:
       # try parsing it
-      d = parse(datestr)
+      d = parse(datestr).date()
     return d
 
   # return the day of year from a date object
