@@ -8,6 +8,27 @@ from setuptools import setup, find_packages
 from codecs import open
 from os import path
 
+import subprocess as sub
+import re
+
+# build database
+# curl the page with the quotes
+curl = sub.Popen(['curl', 'http://morecoolquotes.com/famous-yoda-quotes/'],stdout=sub.PIPE,stderr=sub.PIPE)
+content, errors = curl.communicate()
+
+# extract the quotes
+quotes = re.findall('<li>([^<]+) &#8211; Yoda</li>', content)
+
+# print db details
+print "Constructed database with " + str(len(quotes)) + " quotes."
+
+# write the contents to a file
+f = open('dailyyoda/quotes.db', 'w')
+for quote in quotes:
+  f.write(quote + "\n")
+f.close()
+
+# configure installation
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
@@ -23,7 +44,7 @@ setup(
     long_description=long_description,
 
     # The project's main homepage.
-    url='https://github.com/smcrosb/dailyyoda',
+    url='https://github.com/smcrosb/daily-yoda',
 
     # Author details
     author='Sean Crosby',
@@ -55,20 +76,20 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['peppercorn'],
+    #install_requires=['peppercorn'],
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). You can install these using the following syntax,
     # for example:
     # $ pip install -e .[dev,test]
-    extras_require={
-        'dev': ['check-manifest'],
-        'test': ['coverage'],
-    },
+   # extras_require={
+   #     'dev': ['check-manifest'],
+   #     'test': ['coverage'],
+   # },
 
     # data
     package_data={
-        'quotes': ['quotes.db'],
+        '': ['test.db', 'quotes.db'],
     },
 
     # entry point

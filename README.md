@@ -42,6 +42,8 @@ $ echo $?
 sudo python setup.py install
 ```
 
+_note: quotes.db is built when setup is run
+
 ## removal
 
 ```bash
