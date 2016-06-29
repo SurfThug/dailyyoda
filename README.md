@@ -42,7 +42,7 @@ $ echo $?
 sudo python setup.py install
 ```
 
-_note: quotes.db is built when setup is run
+_note: quotes.db is built from a site on the internet when setup.py is executed_
 
 ## removal
 
