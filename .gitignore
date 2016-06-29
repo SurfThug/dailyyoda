@@ -1,5 +1,6 @@
 # daily-yoda specific
 dailyyoda/quotes.db
+*.swp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
